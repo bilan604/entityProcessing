@@ -24,22 +24,7 @@ DEFAULT_KEYWORDS = [
     "DS",
     "Robotics",
     "Automation",
-    "Algorithm",
-    "Predictive Analytics",
-    "Image Recognition",
-    "Speech Recognition",
-    "Sentiment Analysis",
-    "Virtual Assistant",
-    "Chatbot",
-    "Recommendation Systems",
-    "Decision Trees",
-    "Data Mining",
-    "Pattern Recognition",
-    "Autonomous Vehicles",
-    "Expert Systems",
-    "Knowledge Representation",
-    "Computer Graphics",
-    "Cognitive Computing"
+    "Algorithm"
 ]
 
 AVOID = list(["if", "we", "and", "but", "then", "of", "for", "in", "when", "what", "why", "who", "is", "at", "because", "from", "stand", "paying", "that", "open", "scale", "some"])
@@ -245,7 +230,7 @@ def obtain_entity_counts(posts: list=[]):
     raw_entities = get_entities(posts)
     raw_entities = [s for s in raw_entities if s and s.lower() not in AVOID and not ends_in_common(s)]
     raw_entities += DEFAULT_KEYWORDS
-
+    """
     entities = []
     # Number of weekly mentions for each entity
     for i in range(len(raw_entities)):
@@ -258,7 +243,7 @@ def obtain_entity_counts(posts: list=[]):
                     break
         if add:
             entities.append(raw_entities[i])
-
+    """
     entities = raw_entities
 
     entity_counts = get_entity_counts(posts, entities)
