@@ -1,5 +1,9 @@
 import praw
 
+"""
+This file is currently not used
+"""
+
 
 reddit = praw.Reddit(
     client_id="",

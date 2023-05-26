@@ -31,7 +31,6 @@ AVOID = list(["if", "we", "and", "but", "then", "of", "for", "in", "when", "what
 AVOID += [letter for letter in string.ascii_lowercase]
 AVOID = set(AVOID)
 
-
 common_words = [
 "the",
 "of",
