@@ -25,7 +25,7 @@ def main():
   reddit = praw.Reddit(
     client_id="",
     client_secret="",
-    user_agent="",  #
+    user_agent="",
     password="",
     username="")
 
