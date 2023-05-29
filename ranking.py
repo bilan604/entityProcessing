@@ -161,7 +161,7 @@ def get_phrases(s):
     lst = s.split(". ")
     lst = [s.strip() for s in lst if len(s) > 2]
     lst = [filter_spacing(s) for s in lst]
-    
+    lst = [s for s in lst if s]
     # decapitalize
     lst = [s[0].lower() + s[1:] for s in lst]
     return lst
@@ -211,7 +211,7 @@ def get_entity_counts(posts, entities: list[str]):
     for post in posts:
         if not post.date:
             continue
-        weeksAgo = calculate_days_ago(post.date) // 7
+        weeksAgo = post.weeks_ago
         if weeksAgo > 4:
             continue
         s = post.content + "\n"
