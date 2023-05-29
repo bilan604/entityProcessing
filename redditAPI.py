@@ -1,33 +1,7 @@
-import praw
-
-"""
-This file is currently not used
-"""
-
-
-reddit = praw.Reddit(
-    client_id="",
-    client_secret="",
-    user_agent="personal use script by u/",  #entityNoticing
-)
-
-print(reddit)
-
-# Access a subreddit
-subreddit = reddit.subreddit('python')
-
-# Get the top 5 hot posts from the subreddit
-for submission in subreddit.hot(limit=5):
-    print(submission.title)
-
-# Post a comment
-submission = reddit.submission(id='POST_ID')
-submission.reply('This is a sample comment.')
-
-# Upvote a post
-submission = reddit.submission(id='POST_ID')
-submission.upvote()
-
-# Downvote a post
-submission = reddit.submission(id='POST_ID')
-submission.downvote()
+def get_subreddit_submissions(reddit, subredditName, LOAD_LIMIT=1000):
+  # Access a subreddit
+  subreddit = reddit.subreddit(subredditName)
+  submissions = []
+  for submission in subreddit.new(limit=LOAD_LIMIT):
+    submissions.append(submission)
+  return submissions
